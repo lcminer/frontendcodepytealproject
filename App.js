@@ -13,7 +13,7 @@ const peraWallet = new PeraWalletConnect();
 
 // The app ID on testnet
 // RPS app
-const appIndex = 0;
+const appIndex = 2;
 const appAddress = "";
 
 // connect to the algorand node
@@ -53,7 +53,7 @@ function App() {
   return (
     <Container>
       <meta name="name" content="Testing frontend for PyTeal" />
-      <h1> Test frontend for PyTeal</h1>
+      <h1> PyTeal: Coffee traceability smart contract </h1>
       <Row>
         <Col>
           <Button
@@ -201,14 +201,14 @@ function App() {
         //  appArgs,
         accounts
       );
-      /*
+      
       let payTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
         from: accountAddress,
         to: appAddress,
         amount: 100000,
-        suggestedParams: suggestedParams,
+       // suggestedParams: suggestedParams,
       });
-*/
+
       let txns = [actionTx, payTx];
       algosdk.assignGroupID(txns);
 
