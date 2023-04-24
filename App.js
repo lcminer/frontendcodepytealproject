@@ -13,8 +13,8 @@ const peraWallet = new PeraWalletConnect();
 
 // The app ID on testnet
 // RPS app
-const appIndex = 2;
-const appAddress = "";
+const appIndex = 205065607;
+const appAddress = "YQLJYL7WEXYHO353MK7DBRKGLU4YVNZ7DNX4UI3LXEHRMLA73IFZ6DUTCQ";
 
 // connect to the algorand node
 // token, address(server), port
