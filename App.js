@@ -84,7 +84,7 @@ function App() {
       </Row>
       <br />
       <form>
-      <label>coffee_guid :
+      <label>Coffee guid :
         <input
           type="number" 
           value={local_coffee_guid}
@@ -94,7 +94,7 @@ function App() {
     </form>
     <br />
       <form>
-      <label>coffee_type :
+      <label>Coffee Type :
         <input
           type="number" 
           value={local_coffee_type}
@@ -104,7 +104,7 @@ function App() {
     </form>
     <br />
       <form>
-      <label>coffee_roaster :
+      <label>Coffee Roaster :
         <input
           type="number" 
           value={local_coffee_roaster}
@@ -114,7 +114,7 @@ function App() {
     </form>
     <br />
       <form>
-      <label>coffee_batch_number :
+      <label>Coffee Batch Number :
         <input
           type="number" 
           value={local_coffee_batch_number}
@@ -124,7 +124,7 @@ function App() {
     </form>
     <br />
       <form>
-      <label>coffee_batch_size :
+      <label>Coffee Batch Size :
         <input
           type="number" 
           value={local_coffee_batch_size}
