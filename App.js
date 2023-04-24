@@ -83,7 +83,61 @@ function App() {
         </Col>
       </Row>
       <br />
+      <form>
+      <label>coffee_guid :
+        <input
+          type="number" 
+          value={local_coffee_guid}
+          onChange={(e) => set_local_coffee_guid(e.target.value)}
+        />
+      </label>
+    </form>
+    <br />
+      <form>
+      <label>coffee_type :
+        <input
+          type="number" 
+          value={local_coffee_type}
+          onChange={(e) => set_local_coffee_type(e.target.value)}
+        />
+      </label>
+    </form>
+    <br />
+      <form>
+      <label>coffee_roaster :
+        <input
+          type="number" 
+          value={local_coffee_roaster}
+          onChange={(e) => set_local_coffee_roaster(e.target.value)}
+        />
+      </label>
+    </form>
+    <br />
+      <form>
+      <label>coffee_batch_number :
+        <input
+          type="number" 
+          value={local_coffee_batch_number}
+          onChange={(e) => set_local_coffee_batch_number(e.target.value)}
+        />
+      </label>
+    </form>
+    <br />
+      <form>
+      <label>coffee_batch_size :
+        <input
+          type="number" 
+          value={local_coffee_batch_size}
+          onChange={(e) => set_local_coffee_batch_size(e.target.value)}
+        />
+      </label>
+    </form>
+
+
+
+
     </Container>
+    
   );
 
   function handleConnectWalletClick() {
