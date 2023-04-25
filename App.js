@@ -51,7 +51,7 @@ function App() {
   }, []);
 
   return (
-    <Container>
+    <Container style={{backgroundColor: "#808080"}}>
       <meta name="name" content="Testing frontend for PyTeal" />
       <h1> PyTeal: Coffee traceability smart contract </h1>
       <Row>
