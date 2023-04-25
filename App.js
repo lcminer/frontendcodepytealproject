@@ -27,7 +27,6 @@ const algod = new algosdk.Algodv2(
 
 function App() {
   const [accountAddress, setAccountAddress] = useState('');
-  const [owner, setOwner] = useState('');
   const [local_farmer, set_local_farmer] = useState('');
   const [local_coffee_guid, set_local_coffee_guid] = useState('');
   const [local_coffee_type, set_local_coffee_type] = useState('');
@@ -75,14 +74,6 @@ function App() {
         </Col>
       </Row>
       <br />
-      <Row>
-        <Col>
-          <Button onClick={() => setOwner(true)}>Start</Button>
-        </Col>
-        <Col>
-          <Button onClick={() => setOwner(false)}>Join</Button>
-        </Col>
-      </Row>
       <br />
       <form>
       <label>Coffee guid :
@@ -220,7 +211,6 @@ async function createCoffeeApplication() {
         const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
             new Uint8Array(Buffer.from(JSON.stringify(JSON.stringify("accept")))), // naziv dugmeta za exportCoffee
-            new Uint8Array(Buffer.from(JSON.stringify(owner))),
             new Uint8Array(Buffer.from(JSON.stringify(local_farmer))),
             new Uint8Array(Buffer.from(JSON.stringify(local_coffee_guid))),
             new Uint8Array(Buffer.from(JSON.stringify(local_coffee_guid))),
