@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ReactDOM from 'react-dom/client';
 import { useEffect, useState } from "react";
 
 //const crypto = require("crypto");
@@ -166,6 +167,10 @@ function App() {
     </Container>
     
   );
+
+  
+
+
   function handleConnectWalletClick() {
     peraWallet
       .connect()
@@ -215,6 +220,8 @@ async function createCoffeeApplication() {
         const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
             new Uint8Array(Buffer.from("accept")), // naziv dugmeta za exportCoffee
+            new Uint8Array(Buffer.from(accountAddress)),
+            new Uint8Array(Buffer.from(owner)),
             new Uint8Array(Buffer.from(local_farmer)),
             new Uint8Array(Buffer.from(local_coffee_guid)),
             new Uint8Array(Buffer.from(local_coffee_guid)),
