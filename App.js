@@ -124,6 +124,9 @@ function App() {
         />
       </label>
     </form>
+    <br />
+    <br />
+
     <Row>
         <Col>
           <Button onClick={() => createCoffeeApplication()}>Create Coffee Application</Button>
@@ -199,7 +202,7 @@ function App() {
       const { txId } = await algod.sendRawTransaction(signedTx).do();
       const result = await waitForConfirmation(algod, txId, 2);
     } catch (e) {
-      console.error(`There was an error calling the rps app: ${e}`);
+      console.error(`There was an error calling the app: ${e}`);
     }
   }
 
@@ -210,7 +213,7 @@ async function createCoffeeApplication() {
         // get suggested params
         const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
-            new Uint8Array(Buffer.from(JSON.stringify(JSON.stringify("accept")))), // naziv dugmeta za exportCoffee
+            new Uint8Array(Buffer.from("accept")), 
             new Uint8Array(Buffer.from(JSON.stringify(local_farmer))),
             new Uint8Array(Buffer.from(JSON.stringify(local_coffee_guid))),
             new Uint8Array(Buffer.from(JSON.stringify(local_coffee_guid))),
