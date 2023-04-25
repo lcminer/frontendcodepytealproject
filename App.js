@@ -220,7 +220,6 @@ async function createCoffeeApplication() {
         const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
             new Uint8Array(Buffer.from(JSON.stringify(JSON.stringify("accept")))), // naziv dugmeta za exportCoffee
-            new Uint8Array(Buffer.from(JSON.stringify(accountAddress))),
             new Uint8Array(Buffer.from(JSON.stringify(owner))),
             new Uint8Array(Buffer.from(JSON.stringify(local_farmer))),
             new Uint8Array(Buffer.from(JSON.stringify(local_coffee_guid))),
