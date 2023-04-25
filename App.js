@@ -210,21 +210,30 @@ function App() {
 
 async function createCoffeeApplication() {
       try {
-        /*   setRealHand(hand);
+        //   setRealHand(hand);
         // get suggested params
         const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
-          new Uint8Array(Buffer.from("start")),
-          new Uint8Array(Buffer.from(hashedhand, "base64")),
+            new Uint8Array(Buffer.from("accept")), // naziv dugmeta za exportCoffee
+            new Uint8Array(Buffer.from(local_farmer)),
+            new Uint8Array(Buffer.from(local_coffee_guid)),
+            new Uint8Array(Buffer.from(local_coffee_guid)),
+            new Uint8Array(Buffer.from(local_coffee_roaster)),
+            new Uint8Array(Buffer.from(local_coffee_batch_size)),
+            new Uint8Array(Buffer.from(local_coffee_batch_number))
+
+
+
+    
         ];
-  */
+  
         const accounts = [""];
   
         let actionTx = algosdk.makeApplicationNoOpTxn(
           accountAddress,
-          // suggestedParams,
+          suggestedParams,
           appIndex,
-          //  appArgs,
+          appArgs,
           accounts
         );
         
@@ -232,7 +241,7 @@ async function createCoffeeApplication() {
           from: accountAddress,
           to: appAddress,
           amount: 100000,
-         // suggestedParams: suggestedParams,
+         suggestedParams: suggestedParams,
         });
         let txns = [actionTx, payTx];
         algosdk.assignGroupID(txns);
@@ -272,7 +281,8 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
         accountAddress,
         suggestedParams,
         appIndex,
-        accounts
+        accounts,
+        appArgs
       );
 
       let payTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
@@ -317,7 +327,8 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
         accountAddress,
         suggestedParams,
         appIndex,
-        accounts
+        accounts,
+        appArgs
       );
 
       let payTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
@@ -362,7 +373,8 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
         accountAddress,
         suggestedParams,
         appIndex,
-        accounts
+        accounts,
+        appArgs
       );
 
       let payTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
@@ -407,7 +419,8 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
         accountAddress,
         suggestedParams,
         appIndex,
-        accounts
+        accounts,
+        appArgs
       );
 
       let payTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
@@ -455,7 +468,8 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
         accountAddress,
         suggestedParams,
         appIndex,
-        accounts
+        accounts,
+        appArgs
       );
 
       let payTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
@@ -500,7 +514,8 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
         accountAddress,
         suggestedParams,
         appIndex,
-        accounts
+        accounts,
+        appArgs
       );
 
       let payTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
@@ -549,7 +564,8 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
         accountAddress,
         suggestedParams,
         appIndex,
-        accounts
+        accounts,
+        appArgs
       );
 
       let payTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
