@@ -26,14 +26,14 @@ const algod = new algosdk.Algodv2(
 );
 
 function App() {
-  const [accountAddress, setAccountAddress] = useState(null);
-  const [owner, setOwner] = useState(null);
-  const [local_farmer, set_local_farmer] = useState(null);
-  const [local_coffee_guid, set_local_coffee_guid] = useState(null);
-  const [local_coffee_type, set_local_coffee_type] = useState(null);
-  const [local_coffee_roaster, set_local_coffee_roaster] = useState(null);
-  const [local_coffee_batch_number, set_local_coffee_batch_number] = useState(null);
-  const [local_coffee_batch_size, set_local_coffee_batch_size] = useState(null);
+  const [accountAddress, setAccountAddress] = useState('');
+  const [owner, setOwner] = useState('');
+  const [local_farmer, set_local_farmer] = useState('');
+  const [local_coffee_guid, set_local_coffee_guid] = useState('');
+  const [local_coffee_type, set_local_coffee_type] = useState('');
+  const [local_coffee_roaster, set_local_coffee_roaster] = useState('');
+  const [local_coffee_batch_number, set_local_coffee_batch_number] = useState('');
+  const [local_coffee_batch_size, set_local_coffee_batch_size] = useState('');
 
   const isConnectedToPeraWallet = !!accountAddress; //convert string to boolean
 
@@ -219,22 +219,22 @@ async function createCoffeeApplication() {
         // get suggested params
         const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
-            new Uint8Array(Buffer.from("accept")), // naziv dugmeta za exportCoffee
-            new Uint8Array(Buffer.from(accountAddress)),
-            new Uint8Array(Buffer.from(owner)),
-            new Uint8Array(Buffer.from(local_farmer)),
-            new Uint8Array(Buffer.from(local_coffee_guid)),
-            new Uint8Array(Buffer.from(local_coffee_guid)),
-            new Uint8Array(Buffer.from(local_coffee_roaster)),
-            new Uint8Array(Buffer.from(local_coffee_batch_size)),
-            new Uint8Array(Buffer.from(local_coffee_batch_number))
+            new Uint8Array(Buffer.from(JSON.stringify(JSON.stringify("accept")))), // naziv dugmeta za exportCoffee
+            new Uint8Array(Buffer.from(JSON.stringify(accountAddress))),
+            new Uint8Array(Buffer.from(JSON.stringify(owner))),
+            new Uint8Array(Buffer.from(JSON.stringify(local_farmer))),
+            new Uint8Array(Buffer.from(JSON.stringify(local_coffee_guid))),
+            new Uint8Array(Buffer.from(JSON.stringify(local_coffee_guid))),
+            new Uint8Array(Buffer.from(JSON.stringify(local_coffee_roaster))),
+            new Uint8Array(Buffer.from(JSON.stringify(local_coffee_batch_size))),
+            new Uint8Array(Buffer.from(JSON.stringify(local_coffee_batch_number)))
 
 
 
     
         ];
   
-        const accounts = [""];
+        const accounts = ["VPFT5JEZ6SKPTMTSMJUATZZHNYDCMMG6IXHY3U6333U5GWGOZWOK6CXC7M"];
   
         let actionTx = algosdk.makeApplicationNoOpTxn(
           accountAddress,
@@ -277,12 +277,12 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
       const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
         new Uint8Array(Buffer.from("accept")), // naziv dugmeta za receiveCoffee
-        new Uint8Array(Buffer.from(local_farmer)),
-        new Uint8Array(Buffer.from(local_coffee_roaster))
+        new Uint8Array(Buffer.from(JSON.stringify(local_farmer))),
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_roaster)))
 
       ];
 
-      const accounts = [""];
+      const accounts = ["D2PNCTZN2NDLMGP6ZLRGW6OPXK7QG22AO5EIQL2H254USDU3AQCFCCV6DA"];
 
       let actionTx = algosdk.makeApplicationNoOpTxn(
         accountAddress,
@@ -324,11 +324,11 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
       const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
         new Uint8Array(Buffer.from("accept")), // naziv dugmeta za processCoffee
-        new Uint8Array(Buffer.from(local_coffee_batch_size))
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_batch_size)))
 
       ];
 
-      const accounts = [""];
+      const accounts = ["VPFT5JEZ6SKPTMTSMJUATZZHNYDCMMG6IXHY3U6333U5GWGOZWOK6CXC7M"];
 
       let actionTx = algosdk.makeApplicationNoOpTxn(
         accountAddress,
@@ -370,11 +370,11 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
       const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
         new Uint8Array(Buffer.from("accept")), // naziv dugmeta za packCoffee
-        new Uint8Array(Buffer.from(local_coffee_batch_size))
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_batch_size)))
 
       ];
 
-      const accounts = [""];
+      const accounts = ["VPFT5JEZ6SKPTMTSMJUATZZHNYDCMMG6IXHY3U6333U5GWGOZWOK6CXC7M"];
 
       let actionTx = algosdk.makeApplicationNoOpTxn(
         accountAddress,
@@ -416,11 +416,11 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
       const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
         new Uint8Array(Buffer.from("accept")), // naziv dugmeta za shipCoffee
-        new Uint8Array(Buffer.from(local_coffee_batch_number))
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_batch_number)))
 
       ];
 
-      const accounts = [""];
+      const accounts = ["VPFT5JEZ6SKPTMTSMJUATZZHNYDCMMG6IXHY3U6333U5GWGOZWOK6CXC7M"];
 
       let actionTx = algosdk.makeApplicationNoOpTxn(
         accountAddress,
@@ -462,14 +462,14 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
       const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
         new Uint8Array(Buffer.from("accept")), // naziv dugmeta za receive
-        new Uint8Array(Buffer.from(local_coffee_batch_size)),
-        new Uint8Array(Buffer.from(local_coffee_batch_number)),
-        new Uint8Array(Buffer.from(local_coffee_roaster))
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_batch_size))),
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_batch_number))),
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_roaster)))
 
 
       ];
 
-      const accounts = [""];
+      const accounts = ["D2PNCTZN2NDLMGP6ZLRGW6OPXK7QG22AO5EIQL2H254USDU3AQCFCCV6DA"];
 
       let actionTx = algosdk.makeApplicationNoOpTxn(
         accountAddress,
@@ -511,11 +511,11 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
       const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
         new Uint8Array(Buffer.from("accept")), // naziv dugmeta za roastCoffee
-        new Uint8Array(Buffer.from(local_coffee_roaster))
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_roaster)))
 
       ];
 
-      const accounts = [""];
+      const accounts = ["VPFT5JEZ6SKPTMTSMJUATZZHNYDCMMG6IXHY3U6333U5GWGOZWOK6CXC7M"];
 
       let actionTx = algosdk.makeApplicationNoOpTxn(
         accountAddress,
@@ -557,15 +557,15 @@ async function receiveCoffee(local_farmer, local_coffee_roaster) {
       const suggestedParams = await algod.getTransactionParams().do();
         const appArgs = [
         new Uint8Array(Buffer.from("accept")), // naziv dugmeta za exportCoffee
-        new Uint8Array(Buffer.from(local_coffee_guid)),
-        new Uint8Array(Buffer.from(local_coffee_roaster))
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_guid))),
+        new Uint8Array(Buffer.from(JSON.stringify(local_coffee_roaster)))
 
 
       ];
 
     
 
-      const accounts = [""];
+      const accounts = ["VPFT5JEZ6SKPTMTSMJUATZZHNYDCMMG6IXHY3U6333U5GWGOZWOK6CXC7M"];
 
       let actionTx = algosdk.makeApplicationNoOpTxn(
         accountAddress,
